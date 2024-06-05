@@ -39,7 +39,7 @@ const Nav = () => {
           <button type="button" onClick={signOut} className="outline_btn">
             Sign Out
           </button>
-          <Link href={`/profile/${session?.user?.id}${session?.user?.id}`}>
+          <Link href={`/profile/${session?.user?.id}/${session?.user?.name?.replace(/[^a-zA-Z0-9]/g, "").toLowerCase()}`}>
             <Image
               src={session?.user?.image}
               width={37}
@@ -68,7 +68,7 @@ const Nav = () => {
               onClick={()=>setToggleDropdown((prev) => !prev)}
             />
             {toggleDropdown && (<div className="dropdown">
-              <Link href={`/profile/${session?.user?.id}/${session?.user?.id}`} className="dropdown_link" onClick={()=>setToggleDropdown(false)}>
+              <Link href={`/profile/${session?.user?.id}/${session?.user?.name?.replace(/[^a-zA-Z0-9]/g, "").toLowerCase()}`} className="dropdown_link" onClick={()=>setToggleDropdown(false)}>
                 My Profile
               </Link>
               <Link href={"/create-prompt"} className="dropdown_link" onClick={()=>setToggleDropdown(false)}>

@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { useSearchParams } from "next/navigation"
 
@@ -60,4 +60,10 @@ const EditPrompt = () => {
   )
 }
 
-export default EditPrompt
+export default function UpdatePrompt() {
+    <Suspense>
+        <EditPrompt/>
+    </Suspense>
+}
+
+// export default EditPrompt
